@@ -1,1 +1,1 @@
-web: gunicorn Autoscore.app --log-file -
+web: gunicorn Autoscore:app --log-file -
