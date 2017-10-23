@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy import signal
 from pprint import pprint
 
@@ -8,6 +7,7 @@ DEBUG = False
 
 def plot(*args, **kwargs):
     if DEBUG:
+        import matplotlib.pyplot as plt
         plt.plot(*args, **kwargs)
         plt.legend()
         plt.show()
@@ -181,6 +181,7 @@ def get_note_pitches(rate, data, note_times, conf):
         fundamental = findFundamental(f,power_spectrum,noise_floor)
 
         if DEBUG:
+            import matplotlib.pyplot as plt
             import pandas as pd
             notes = pd.read_csv('Notes.csv')
 
@@ -206,6 +207,7 @@ def get_note_pitches(rate, data, note_times, conf):
 
 def plot_pitch_vs_time(pitches, times):
     if DEBUG:
+        import matplotlib.pyplot as plt
         import pandas as pd
         plt.plot(times, pitches, 'ro')
         notes = pd.read_csv('Notes.csv')

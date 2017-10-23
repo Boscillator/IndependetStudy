@@ -1,5 +1,5 @@
 from Autoscore import celery, app
-from Autoscore.libpitch import getNotes
+#from Autoscore.libpitch import getNotes
 import Autoscore.dsp
 import numpy as np
 import re
