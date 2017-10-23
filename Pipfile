@@ -1,0 +1,6 @@
+[packages]
+flask="*"
+celery="*"
+numpy="*"
+scipy="*"
+matplotlib="*"
