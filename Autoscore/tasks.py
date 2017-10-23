@@ -3,7 +3,7 @@ from Autoscore import celery, app
 import Autoscore.dsp
 import numpy as np
 import re
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from celery import uuid
 from subprocess import call
 import base64
