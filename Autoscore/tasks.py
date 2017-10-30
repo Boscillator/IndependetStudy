@@ -44,7 +44,7 @@ def lilypond_to_pdf(source):
 
     call([ app.config['LILYPOND_INSTALL'], '--output' + app.config['TMP_DIR'], app.config['TMP_DIR'] + id + '.ly'])
 
-    pdf_file = open('./work/' + id + '.pdf', 'rb')
+    pdf_file = open(app.config['TMP_DIR'] + id + '.pdf', 'rb')
     pdf = pdf_file.read()
     pdf_file.close()
 
