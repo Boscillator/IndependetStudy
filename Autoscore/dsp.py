@@ -69,7 +69,7 @@ def calculate_note_locations(data, conf):
     threshold = calculate_threshold(signal, conf)
 
     #write(threshold)
-    #plot(signal, label='signal')
+    plot(signal, label='signal')
 
     where_note = signal > threshold
 
@@ -79,8 +79,7 @@ def calculate_note_locations(data, conf):
     where_note_average[0] = 0
     where_note_average[-1] = 0
 
-    #plt.plot(where_note_average, label='where_note_average')
-    #plt.show()
+    #plot(where_note_average, label='where_note_average')
 
     basicly_boolean_zero = conf.get('BOOL_ZERO_NEAR', 0.008)
     where_note_average_not_zero = where_note_average > basicly_boolean_zero
@@ -96,7 +95,7 @@ def find_edge(xs, sign):
     """
     xs_int = xs.astype(np.int8)  # Cast to int so falling edges and rising edges look different
     diff = np.diff(xs_int)
-    #plot(diff, label='diff')
+    plot(diff, label='diff')
     return np.where(diff == sign)[0]
 
 
@@ -115,7 +114,7 @@ def get_note_times(rate, data, conf):
 
     #plot(data)
     where_note = calculate_note_locations(data, conf)
-    #plot(where_note, label='where_note')
+    plot(where_note, label='where_note')
 
     start_times = calculate_note_start_times(where_note)
     end_times = calculate_note_start_end(where_note)
@@ -128,7 +127,7 @@ def get_note_times(rate, data, conf):
 
     #plot(start_times, 'ro', label='start times')
     #plot(end_times, 'ro', label='end times')
-    #plot(times, 'ro', label='times')
+    plot(times, 'ro', label='times')
 
     return samples_to_seconds(times, rate)
 
