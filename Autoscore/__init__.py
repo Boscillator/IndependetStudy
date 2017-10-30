@@ -23,6 +23,7 @@ def make_celery(app):
 app.config.update(
     CELERY_BROKER_URL=os.environ.get('REDIS_URL','redis://localhost:6379'),
     CELERY_RESULT_BACKEND=os.environ.get('REDIS_URL','redis://localhost:6379'),
+    TMP_DIR = os.environ.get('TMP_DIR','./work/'),
     LILYPOND_INSTALL = os.environ.get('LILYPOND_INSTALL',r"D:\Windoes\Programs\lilypond\usr\bin\lilypond.exe")
     #LILYPOND_INSTALL = "lilypond"
 )
