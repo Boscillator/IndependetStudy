@@ -28,6 +28,9 @@ app.config.update(
     #LILYPOND_INSTALL = "lilypond"
 )
 
+if not os.path.exists(app.config['TMP_DIR']):
+    os.makedirs(app.config['TMP_DIR'])
+
 celery = make_celery(app)
 
 import Autoscore.routes
