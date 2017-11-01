@@ -38,13 +38,13 @@ def notes_to_lilypond(notes):
 def lilypond_to_pdf(source):
     id = str(uuid()).replace('-','')
 
-    source_file = open(app.config['TMP_DIR'] + '/' + id + '.ly', 'w')
+    source_file = open(id + '.ly', 'w')
     source_file.write(source)
     source_file.close()
 
-    call([ app.config['LILYPOND_INSTALL'], '--output ' + app.config['TMP_DIR'], app.config['TMP_DIR'] + id + '.ly'])
+    call([ app.config['LILYPOND_INSTALL'], id + '.ly'])
 
-    pdf_file = open(app.config['TMP_DIR'] + '/' + id + '.pdf', 'rb')
+    pdf_file = open(id + '.pdf', 'rb')
     pdf = pdf_file.read()
     pdf_file.close()
 
