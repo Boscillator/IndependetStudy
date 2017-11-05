@@ -43,10 +43,10 @@ def lilypond_to_pdf(source):
     source_file.write(source)
     source_file.close()
 
-    call(['ls'])
-
     print("Compiling sorce file")
     call([ app.config['LILYPOND_INSTALL'], id + '.ly'])
+
+    call(['ls'])
 
     print("Read sorce file")
     pdf_file = open(id + '.pdf', 'rb')
