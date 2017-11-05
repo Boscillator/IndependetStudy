@@ -44,7 +44,7 @@ def lilypond_to_pdf(source):
     source_file.close()
 
     print("Compiling sorce file")
-    call([ app.config['LILYPOND_INSTALL'], id + '.ly'])
+    call([ app.config['LILYPOND_INSTALL'], '-l', 'DEBUG', id + '.ly'])
 
     call(['ls'])
 
