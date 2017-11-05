@@ -59,6 +59,7 @@ def create_pdf(notes):
 
 @celery.task()
 def convert(rate, data):
+    print("Starting task")
     data = np.array(data)
     
     notes = pd.read_csv('Notes.csv')
