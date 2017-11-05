@@ -72,4 +72,6 @@ def convert(rate, data):
 
     pdf = create_pdf(notes)
     pdf = base64.urlsafe_b64encode(pdf).decode('ascii')
+
+    print("Job Done!")
     return pdf
