@@ -38,12 +38,15 @@ def notes_to_lilypond(notes):
 def lilypond_to_pdf(source):
     id = str(uuid()).replace('-','')
 
+    print("Writing source file")
     source_file = open(id + '.ly', 'w')
     source_file.write(source)
     source_file.close()
 
+    print("Compiling sorce file")
     call([ app.config['LILYPOND_INSTALL'], id + '.ly'])
 
+    print("Read sorce file")
     pdf_file = open(id + '.pdf', 'rb')
     pdf = pdf_file.read()
     pdf_file.close()
@@ -53,7 +56,9 @@ def lilypond_to_pdf(source):
 def create_pdf(notes):
     source =  notes_to_lilypond(notes)
     source = """\\version "2.18.2" \\absolute {\n""" + source + "}"
+    print(f"Source compilized: {source}")
     pdf = lilypond_to_pdf(source)
+    print("Lilypond lilyponded")
     return pdf
 
 
@@ -72,6 +77,7 @@ def convert(rate, data):
     })
 
     pdf = create_pdf(notes)
+    print("PDF mackerated")
     pdf = base64.urlsafe_b64encode(pdf).decode('ascii')
 
     print("Job Done!")
